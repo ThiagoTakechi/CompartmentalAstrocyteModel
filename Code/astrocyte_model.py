@@ -5,8 +5,8 @@
 # File description:
 #
 # Functions implementing the current densities and differential equations for 
-# each variable in the astrocyte model, and functions to calculate the 
-# pre-synaptic spike times and implement the 4th-order Runge-Kutta method to
+# each variable in the astrocyte model, to calculate the 
+# pre-synaptic spike times, and implement the 4th-order Runge-Kutta method to
 # solve the system of differential equations.
 # ----------------------------------------------------------------------------
 
