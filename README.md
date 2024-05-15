@@ -58,6 +58,10 @@ This cnfiguration is optional. However, it can be useful for the simulation of t
 change_param rho_glu 0.5e-2  
 change_param G_glu 150  
 
+### Examples
+
+We provided a Jupyter Notebook (CompartimentalAstrocyteModel_Fig34.ipynb) to run the model plotting the linear astrocyte response to glutamatergic and dopaminergic stimulation (subfigures in Fig. 3 and Fig. 4). We also provided two input text files inside the Input folder to run the same simulations as in the Jupyter Notebook. Just execute the run_tests.py file to run the model with the configuration descript in these file.
+
 ## Requirements
 
 Python 3.6  
