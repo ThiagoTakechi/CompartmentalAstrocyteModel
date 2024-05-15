@@ -14,25 +14,35 @@ import run_model
 import os
 import parameters
 
-file_list = os.listdir(r'Input/')
-output_list = os.listdir(r'Output/')
+def main():
 
-model_parameters = parameters.define_parameters()
-error_files = [] # stores the file for which the simulation returned an error
+    file_list = os.listdir(r'Input/')
+    output_list = os.listdir(r'Output/')
 
-print('Executed files:')
+    model_parameters = parameters.define_parameters()
+    error_files = [] # stores the file for which the simulation returned an error
 
-start_time = perf_counter()
+    print('Executed files:')
 
-for i_file, file in enumerate(file_list):
-   plt.ioff()
-   file_result_name = file[:-3] + 'csv'
-	
-   if file_result_name not in output_list:
-      try:
-         print(file)
-         run_model.simulate_from_file(os.path.join('Input/',file), model_parameters = model_parameters)
-      except:
-         error_files.append(file) 
+    start_time = perf_counter()
 
-print(f'tempo = {perf_counter() - start_time}')
+    for i_file, file in enumerate(file_list):
+        
+        plt.ioff()   # prevent showing plots
+        file_result_name = file[:-3] + 'csv'
+        
+        # ensures that the same file won't be run again
+        if file_result_name not in output_list:
+            try:
+                print(file)
+                run_model.simulate_from_file(os.path.join('Input/',file), model_parameters = model_parameters)
+            except:
+                # If there is any error during simulation, the file will be stored in a list
+                error_files.append(file)
+                
+    print('\nUnable to run the following files: \n', error_files)
+
+    print(f'Execution time = {perf_counter() - start_time}')
+    
+if __name__ == '__main__':
+    main()
