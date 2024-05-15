@@ -2,7 +2,7 @@ from numba import njit
 
 @njit
 def define_parameters():
-    """Create a Python dictionaruy and return all model's parameters."""
+    """Create a Python dictionary and return all model's parameters."""
     
     p = {}
 
