@@ -321,10 +321,13 @@ def calculate_stimuli(neut = (0,), stimuli_times = (0,), t = 0, dt = 1, stimuli_
                 compart = int(stimulus_compartments[i_compart])
                 t_init = stimuli_t_init[i_stim]
                 t_end = stimuli_t_end[i_stim]
+                
+                if t == 0:
+                    stimuli_times[i_stim, compart-1] += ceil(exponential(scale=1/Hz,size=1)/dt)[0] + int(t_init/dt)
 
-                if (t == stimuli_times[compart-1]) & (t >= t_init/dt) & (t <= t_end/dt):
+                elif (t == stimuli_times[i_stim, compart-1]) & (t >= t_init/dt) & (t <= t_end/dt):
                     neut[compart-1] = neut[compart-1] + rho
-                    stimuli_times[compart-1] = ceil(exponential(scale=1/Hz,size=1)/dt)[0] + stimuli_times[compart-1]
+                    stimuli_times[i_stim, compart-1] += ceil(exponential(scale=1/Hz,size=1)/dt)[0]
 
         elif stimulus_type == 'constant':
                 
