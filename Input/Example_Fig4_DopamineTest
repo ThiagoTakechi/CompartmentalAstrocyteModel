@@ -1,0 +1,12 @@
+simulation_parameter t_total 100
+simulation_parameter dt 0.01e-3
+simulation_parameter sample_rate 1000
+simulation_parameter morphology_filepath ../Morphology/Linear_9comparts.txt
+simulation_parameter compartment_to_monitor 1,2,3,4,5,6,7,8,9
+simulation_parameter init_var Y
+simulation_parameter save_fig Y
+simulation_parameter fig_path ../Tests
+simulation_parameter analyze_data Y
+simulation_parameter thresh 0.15e-3
+stim_glu none
+stim_DA poisson 0 100 10 1,2,3,4,5,6,7,8,9
