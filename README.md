@@ -27,7 +27,7 @@ To simulate the model with the run_model.py file, it must be indicated the simul
 
 ### Simulation Parameters
 
-To configure the simulation parameters, each line must be divided in three space separated entries. In this case, the lines must always beggin with "simulation_parameter". Next, it must indicate the total simulation time (t_total, in seconds, float), the sample rate (sample_rate, in time points, sample frequency = 1/(sample_rate*dt), integer), the time step dt (dt, in seconds, float) for the numerical solution with the 4th-order Runge-Kutta method, the path to the morphology file (morphology_filepath, string), and the compartment indices for which the intracellular calcium concentration will be stored (compartment_to_monitor, sequence of integers separated by a ",", string). It must also indicate whether the program should initialize all variables in order to impose stationary equilibrium at the beggining of the simulation (init_var, "Y" or "N", character), whether to save the simulation output (intracellular calcium concentration of the monitored compartments) as a graph (save_fig, "Y" or "N", character) and whether to analyze the data and save the result in a text file (analyze_data, "Y" or "N", character). If the "save_fig" is passed as "Y", the input text file must contain the path to save figure (fig_path, string). Also, if the "analyze_data" is passed as "Y", the input file must contain a threshold value for counting the calcium signals (thresh, in mM, float). Finally, the last column must indicate the value of each simulation parameter.
+To configure the simulation parameters, each line must be divided in three space separated entries. In this case, the lines must always beggin with "simulation_parameter". Next, it must indicate the total simulation time (t_total, in seconds, float), the sample rate (sample_rate, in time points, sample frequency = 1/(sample_rate*dt), integer), the time step dt (dt, in seconds, float) for the numerical solution with the 4th-order Runge-Kutta method, the path to the morphology file (morphology_filepath, string), and the compartment indices whose intracellular calcium concentration will be stored (compartment_to_monitor, sequence of integers separated by a ",", string). It must also indicate whether the program should initialize all variables in order to impose stationary equilibrium at the beggining of the simulation (init_var, "Y" or "N", character), whether to save the simulation output (intracellular calcium concentration of the monitored compartments) as a graph (save_fig, "Y" or "N", character) and whether to analyze the data and save the result in a text file (analyze_data, "Y" or "N", character). If the "save_fig" is passed as "Y", the input text file must contain the path to save figure (fig_path, string). Also, if the "analyze_data" is passed as "Y", the input file must contain a threshold value for counting the calcium signals (thresh, in mM, float). Finally, the last column must indicate the value of each simulation parameter.
 
 **Example:**  
 simulation_parameter t_total 600  
@@ -52,7 +52,7 @@ stim_DA none
 
 ### Changing Model Parameter 
 
-This cnfiguration is optional. However, it can be useful for the simulation of the model using different parameter values. So, to change any model parameters, the input text file line start with "change_param" followed by the parameter's name (string) and its value (float). All paramaters' names can be found in the parameters.py file. 
+This configuration is optional. However, it can be useful for the simulation of the model using different parameter values. So, to change any model parameters, the input text file line start with "change_param" followed by the parameter's name (string) and its value (float). All paramaters' names can be found in the parameters.py file. 
 
 **Example:**  
 change_param rho_glu 0.5e-2  
@@ -60,7 +60,7 @@ change_param G_glu 150
 
 ### Examples
 
-We provided a Jupyter Notebook (CompartimentalAstrocyteModel_Fig34.ipynb) to run the model plotting the linear astrocyte response to glutamatergic and dopaminergic stimulation (subfigures in Fig. 3 and Fig. 4). We also provided two input text files inside the Input folder to run the same simulations as in the Jupyter Notebook. Just execute the run_tests.py file to run the model with the configuration descript in these file.
+We provided a Jupyter Notebook (CompartimentalAstrocyteModel_Fig34.ipynb) to run the model plotting the linear astrocyte response to glutamatergic and dopaminergic stimulation (subfigures in Fig. 3 and Fig. 4). We also provided two input text files inside the Input folder to run the same simulations as in the Jupyter Notebook. Just execute the run_tests.py file to run the model with the configuration in these file.
 
 ## Requirements
 
