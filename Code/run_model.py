@@ -204,7 +204,7 @@ def simulate_from_file(filename, model_parameters):
     # Correct diffusion factor for compartment dimensions
     connection_matrix[0, 1] = 0.183e-4
     connection_matrix[1, 0] = 0.049
-
+    
     n_comparts = morp_params.shape[0]
     A = morp_params[:,3]
     Vol = morp_params[:,5]
