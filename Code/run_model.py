@@ -9,7 +9,6 @@
 # (intracellular calcium concentration), and analyze and save output data.
 # ----------------------------------------------------------------------------
 
-#from posixpath import split
 from warnings import warn
 
 from numpy import array, zeros, pi, sqrt, exp
@@ -201,6 +200,10 @@ def simulate_from_file(filename, model_parameters):
     points = read_from_swc(simulation_parameters['morphology_filepath'])
     morp_params = calculate_morphological_parameters(points)
     connection_matrix = build_connection_matrix(points)
+
+    # Correct diffusion factor for compartment dimensions
+    connection_matrix[0, 1] = 0.183e-4
+    connection_matrix[1, 0] = 0.049
 
     n_comparts = morp_params.shape[0]
     A = morp_params[:,3]
